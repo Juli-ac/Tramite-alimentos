@@ -1,0 +1,532 @@
+# -*- coding: utf-8 -*-
+# Contenido de las fichas. Editar acá y volver a correr build.py
+# estado: "ok" (verificada) o "rev" (en revisión: hay datos a confirmar)
+
+REVISION = "9/11/2026"
+MARVIA = "https://juli-ac.github.io/Asesoria-alimentaria/#diagnostico"
+
+BLOQUES = [
+    ("arrancar", "Arrancar a producir", "Los primeros pasos para elaborar alimentos de forma legal."),
+    ("registrar", "Registrar establecimiento y producto", "RNE, RNPA y cómo saber cuál te corresponde."),
+    ("etiqueta", "Etiqueta", "Qué tiene que decir tu rótulo y cómo aplicar el etiquetado frontal."),
+    ("profesional", "Profesional y novedades", "Matrícula, dirección técnica y cambios normativos."),
+]
+
+FICHAS = [
+# ---------------------------------------------------------------- 1
+dict(
+ slug="habilitacion-municipal", bloque="arrancar", icono="🏠",
+ titulo="Habilitación municipal del local",
+ resumen="El permiso del municipio para usar un lugar como elaboración, depósito o venta de alimentos. Suele ser el primer paso y lo piden los registros provinciales.",
+ estado="rev",
+ palabras="municipio local comercio habilitacion bromatologia uso de suelo zonificacion",
+ quien=[
+  "Cualquier persona o empresa que vaya a elaborar, fraccionar, depositar o vender alimentos en un lugar físico.",
+  "También suele ser requisito previo para el RNE, y en el caso de PUPAA se presenta si la tenés. ⚠️",
+ ],
+ ante=[
+  ("Organismo", "El municipio donde está el local (área de Habilitaciones, Comercio o Bromatología, según cada municipio)."),
+  ("Modalidad", "Varía según el municipio: presencial, online o mixta."),
+  ("Dónde consultar", "La web o la mesa de entradas de tu municipio."),
+ ],
+ requisitos=[
+  "Acreditar la ocupación legal del inmueble (escritura, contrato de alquiler o comodato).",
+  "Plano o croquis del local con los sectores de trabajo.",
+  "Constancia de que el rubro está permitido en esa zona (uso de suelo o zonificación).",
+  "Inscripciones impositivas (ARCA y ARBA).",
+  "Carnet de manipulador de alimentos de quienes trabajen.",
+  "Pago de tasas municipales.",
+ ],
+ requisitos_nota="⚠️ Esta es la lista habitual. Cada municipio fija sus propios requisitos: confirmalos siempre antes de alquilar o invertir en el local.",
+ pasos=[
+  "Consultá la zonificación antes de alquilar: no todos los rubros se permiten en cualquier zona.",
+  "Pedí al municipio el listado de requisitos para tu rubro.",
+  "Prepará la documentación y adecuá el local (pisos, paredes, agua, desagües, ventilación).",
+  "Presentá el trámite y pagá las tasas.",
+  "Recibí la inspección y, si corresponde, corregí las observaciones.",
+  "Obtené la habilitación y guardá una copia digital: la vas a necesitar para los trámites provinciales.",
+ ],
+ costos="Dependen de cada municipio (tasas de habilitación y de inspección). ⚠️",
+ plazos="Dependen de cada municipio y de si hay observaciones en la inspección. ⚠️",
+ errores=[
+  "Alquilar un local sin verificar antes si el rubro está permitido en esa zona.",
+  "Habilitar un rubro (por ejemplo, venta) y después elaborar en el mismo lugar sin ampliar la habilitación.",
+  "Que el domicilio de la habilitación no coincida con el que declarás en el RNE o el PUPAA.",
+ ],
+ normativa=[
+  "Ordenanzas de cada municipio.",
+  "Código Alimentario Argentino, Capítulo II: condiciones de los establecimientos.",
+  "Ley provincial 13.230: adhesión de la Provincia de Buenos Aires al CAA.",
+ ],
+ fuentes=[
+  ("Ley 13.230 y descentralización en municipios (SIBOM)", "https://sibom.slyt.gba.gob.ar/bulletins/4352/contents/1496687"),
+ ],
+ relacionadas=["carnet-manipulador", "pupaa", "rne"],
+),
+# ---------------------------------------------------------------- 2
+dict(
+ slug="pupaa", bloque="arrancar", icono="🧺",
+ titulo="PUPAA: Pequeñas Unidades Productivas de Alimentos Artesanales",
+ resumen="Un registro provincial gratuito para elaboradores artesanales de pequeña escala. Es la puerta de entrada para formalizarse sin pasar por RNE + RNPA.",
+ estado="rev",
+ palabras="pupaa artesanal pequeña escala emprendedor casa gratuito registro provincial",
+ quien=[
+  "Elaboradores artesanales de pequeña escala que quieren formalizar su producción. ✅",
+  "⚠️ Confirmá con DIPA si tu producto y tu forma de venta entran en el régimen (alcance de comercialización y tipos de producto).",
+ ],
+ ante=[
+  ("Organismo", "Dirección de Industrias y Productos Alimenticios (DIPA), Ministerio de Desarrollo Agrario de PBA. ✅"),
+  ("Modalidad", "Online, desde la plataforma de Registro de PUPAAs (\"Mi MDA\"). Si gestionás para otra persona, usás \"gestión de terceros\". ✅"),
+  ("Costo", "El trámite de registro y habilitación es gratuito. ✅"),
+  ("Contacto", "Tel. (0221) 422-4634 · dipa@mda.gba.gob.ar ✅"),
+ ],
+ requisitos=[
+  "Acreditación de la ocupación legal del inmueble (escritura, contrato de alquiler, comodato, etc.). ✅",
+  "Croquis o plano del lugar: ingreso, depósito de materias primas, sector de elaboración, depósito de producto terminado, baño y desagües. ✅",
+  "Carnet de manipulador de alimentos. ✅",
+  "Habilitación de PUPAA municipal o equivalente, si la tenés. ✅",
+ ],
+ requisitos_nota="Todo se adjunta en PDF dentro de la plataforma.",
+ pasos=[
+  "Ingresá a la plataforma de Registro de PUPAAs y generá tu usuario.",
+  "Entrá en \"gestionar mi PUPAA\" (o \"gestión de terceros\" si sos asesor).",
+  "Cargá los datos y adjuntá la documentación en PDF.",
+  "Seguí el trámite y respondé las observaciones, si las hay.",
+  "Para la primera renovación, todos los manipuladores tienen que acreditar el rótulo definitivo aprobado y 7 capacitaciones obligatorias (entre ellas, manipulación de alimentos, procedimientos de higiene y rotulado de alimentos envasados). ✅",
+ ],
+ costos="Gratuito. ✅",
+ plazos="No publicados. ⚠️",
+ errores=[
+  "Pensar que PUPAA es lo mismo que RNE + RNPA: son regímenes distintos, con alcances distintos.",
+  "No planificar las 7 capacitaciones y llegar a la renovación sin completarlas.",
+  "Presentar un croquis que no muestra los sectores pedidos.",
+ ],
+ normativa=[
+  "RESO-2020-150-GDEBA-MDAGP: reglamento de funcionamiento y registro de PUPAAs. ✅",
+  "RESO-2026-63-GDEBA-MDAGP: norma de 2026 publicada en la página oficial. ⚠️ Revisar qué cambió.",
+ ],
+ fuentes=[
+  ("PUPAAs, DIPA, Ministerio de Desarrollo Agrario PBA", "https://www.gba.gob.ar/desarrollo_agrario/inicio_de_tramites/alimentos/pupaas"),
+  ("Mapa del Estado PBA: funciones de DIPA", "https://mapadelestado.gba.gob.ar/organismos/1585"),
+ ],
+ relacionadas=["cual-me-corresponde", "carnet-manipulador", "rotulado"],
+),
+# ---------------------------------------------------------------- 3
+dict(
+ slug="carnet-manipulador", bloque="arrancar", icono="🪪",
+ titulo="Carnet de manipulador de alimentos",
+ resumen="Una credencial obligatoria para quienes están en contacto con alimentos. Se obtiene con un curso y una evaluación, y lo piden casi todos los trámites.",
+ estado="ok",
+ palabras="carnet manipulador curso capacitacion articulo 21 manipulacion segura",
+ quien=[
+  "Toda persona que elabore, fraccione, almacene, transporte o venda alimentos (art. 21 del CAA). ✅",
+  "Es requisito para PUPAA y suele serlo también para la habilitación municipal. ✅",
+ ],
+ ante=[
+  ("Quién dicta el curso", "Entidades capacitadoras reconocidas por el Ministerio de Desarrollo Agrario de PBA (municipios, instituciones, privados). ✅"),
+  ("Quién emite el carnet", "DIPA, a través de su plataforma (Registro de Manipuladores y Emisión del Carnet). ✅"),
+  ("Validez", "Nacional. ✅"),
+  ("Vigencia", "3 años. ✅"),
+ ],
+ requisitos=[
+  "Hacer el curso de Manipulación Segura de Alimentos con una entidad capacitadora reconocida.",
+  "Aprobar la evaluación.",
+  "DNI y datos personales para la emisión.",
+ ],
+ requisitos_nota="",
+ pasos=[
+  "Buscá una entidad capacitadora reconocida: muchos municipios la tienen, y también hay opciones virtuales.",
+  "Hacé el curso y rendí la evaluación.",
+  "La entidad carga a los aprobados y se tramita el carnet en la plataforma DIPA.",
+  "Recibís el carnet (en general, por correo electrónico).",
+  "Agendá el vencimiento: dura 3 años y para renovarlo hay que volver a aprobar la evaluación.",
+ ],
+ costos="Depende de la entidad capacitadora: hay cursos municipales gratuitos y otros pagos. ⚠️",
+ plazos="Depende de la entidad capacitadora. ⚠️",
+ errores=[
+  "Hacer el curso con una entidad no reconocida: el certificado no sirve para obtener el carnet.",
+  "Dejar vencer el carnet justo antes de una inspección o una renovación.",
+  "Que solo el titular tenga el carnet: lo necesita todo el que manipula.",
+ ],
+ normativa=[
+  "Código Alimentario Argentino, art. 21 (modificado por Res. Conjunta 12/2019). ✅",
+  "Ley 13.230: adhesión de PBA al CAA. ✅",
+ ],
+ fuentes=[
+  ("Manipulación segura de alimentos, DIPA", "https://www.gba.gob.ar/desarrollo_agrario/dipa/manipulacion_segura"),
+  ("Procedimiento para obtener el carnet ante DIPA (MAGyP)", "https://plataformapyme.magyp.gob.ar/wp-content/uploads/2024/04/Procedimiento-Examen-Carnet.pdf"),
+  ("Res. Conjunta 12/2019, Boletín Oficial", "https://www.boletinoficial.gob.ar/pdf/aviso/primera/206649/20211028"),
+ ],
+ relacionadas=["pupaa", "habilitacion-municipal"],
+),
+# ---------------------------------------------------------------- 4
+dict(
+ slug="rne", bloque="registrar", icono="🏭",
+ titulo="RNE: Registro Nacional de Establecimientos",
+ resumen="El registro sanitario del lugar donde se elabora, fracciona o deposita el alimento. Es obligatorio antes de registrar cualquier producto (RNPA).",
+ estado="rev",
+ palabras="rne establecimiento registro nacional planta fabrica auditoria bpm dipa",
+ quien=[
+  "Toda empresa o persona que elabore, fraccione, deposite, importe o exporte alimentos y quiera vender con alcance nacional. ✅",
+  "Es el paso previo obligatorio para tramitar el RNPA de cada producto. ✅",
+ ],
+ ante=[
+  ("Organismo", "DIPA (ex UCAL), Dirección Provincial de Alimentos y Mercados Agroalimentarios, MDA PBA. ✅"),
+  ("Modalidad", "100 % a distancia, por la Plataforma DIPA. ✅"),
+  ("Auditoría", "DIPA evalúa, audita y otorga la inscripción. Hay un documento oficial de requisitos de auditoría (v9-2025). ✅"),
+  ("Contacto", "Tel. 0221-4224634 · dipa@mda.gba.gob.ar · de 9 a 15 h ✅"),
+ ],
+ requisitos=[
+  "Habilitación municipal vigente del establecimiento. ⚠️",
+  "Datos del titular (DNI o estatuto), CUIT e inscripción en ARBA. ⚠️",
+  "Croquis o plano del establecimiento. ⚠️",
+  "Documentación del director técnico, si tu rubro lo exige (título, matrícula y certificado del colegio). ⚠️",
+  "Cumplimiento de Buenas Prácticas de Manufactura (BPM), verificado en la auditoría. ✅",
+  "Pago del arancel. ✅",
+ ],
+ requisitos_nota="⚠️ Cotejar con los documentos oficiales \"requisitos_RNE.pdf\" y \"Requisitos de auditoría v9-2025\", publicados en la página de DIPA.",
+ pasos=[
+  "Asegurate de tener la habilitación municipal y el local adecuado a BPM.",
+  "Creá tu usuario en la Plataforma DIPA.",
+  "Cargá el trámite de inscripción de RNE y adjuntá la documentación en PDF.",
+  "Pagá el arancel.",
+  "Coordiná y recibí la auditoría. Si hay un plan de acción, presentalo en plazo.",
+  "Obtené el certificado de RNE. Recién ahí podés iniciar los RNPA.",
+ ],
+ costos="Fijados anualmente en \"Aranceles_RNE_2026.pdf\" de DIPA. ✅ ⚠️ Cargar el monto vigente.",
+ plazos="El Decreto 697/2026 fija 30 días para resolver autorizaciones. ⚠️ Confirmar cómo se aplica al RNE en PBA.",
+ errores=[
+  "Inscribir el RNE con una categoría o rubro que no cubre los productos que vas a registrar.",
+  "Llegar a la auditoría sin registros de BPM (limpieza, plagas, temperaturas, capacitación).",
+  "Que el domicilio o los datos fiscales no coincidan con la habilitación municipal.",
+  "Dejar vencer el RNE: eso arrastra a todos los RNPA asociados.",
+ ],
+ normativa=[
+  "Ley 18.284 (CAA) y Decreto 2126/71. ✅",
+  "CAA, Capítulo II: establecimientos y BPM. ✅",
+  "Decreto 697/2026: reforma del sistema de control. ✅",
+ ],
+ fuentes=[
+  ("RNE y RNPA, DIPA", "https://www.gba.gob.ar/desarrollo_agrario/direccion_de_industrias_y_productos_alimenticios/rne_rnpa"),
+  ("Mapa del Estado PBA: funciones de DIPA", "https://mapadelestado.gba.gob.ar/organismos/1585"),
+  ("Lanús: RNE/RNPA por la plataforma provincial", "https://tramitesweb.lanus.gob.ar/tramites/45/inscripcion-de-productos-alimenticios-y-registro-de-establecimientos-rnpa-rne"),
+ ],
+ relacionadas=["rnpa", "habilitacion-municipal", "matricula-direccion-tecnica"],
+),
+# ---------------------------------------------------------------- 5
+dict(
+ slug="rnpa", bloque="registrar", icono="📦",
+ titulo="RNPA: Registro Nacional de Producto Alimenticio",
+ resumen="El número que autoriza a vender cada producto alimenticio. Se tramita después del RNE y tiene que figurar en el rótulo.",
+ estado="rev",
+ palabras="rnpa producto registro nacional alimento envasado inscripcion rotulo dipa",
+ quien=[
+  "Toda empresa que elabore, fraccione o haga elaborar por terceros un alimento envasado para vender. ✅",
+  "El establecimiento elaborador tiene que tener RNE vigente y en la categoría correcta para ese producto. ✅",
+ ],
+ ante=[
+  ("Organismo", "DIPA (ex UCAL), MDA PBA. ✅"),
+  ("Modalidad", "100 % a distancia, por la Plataforma DIPA (Sistema integrado de Gestión y Control de Establecimientos y Productos Alimenticios). ✅"),
+  ("Contacto", "Tel. 0221-4224634 · dipa@mda.gba.gob.ar · de 9 a 15 h ✅"),
+ ],
+ requisitos=[
+  "Certificado de RNE vigente de todos los establecimientos que intervienen (propio, de terceros o partícipes). ✅",
+  "Rótulo definitivo según el CAA y las normas vinculadas (incluido el etiquetado frontal, si corresponde). ✅",
+  "Datos técnicos del producto: denominación, ingredientes con su composición porcentual y proceso (monografía o equivalente). ⚠️",
+  "Información nutricional. ⚠️",
+  "Contrato de elaboración por terceros, si corresponde. ⚠️",
+  "Análisis específicos según el caso (por ejemplo, sin TACC en un laboratorio habilitado). ⚠️",
+  "Comprobante de pago del arancel. ⚠️",
+ ],
+ requisitos_nota="⚠️ Cotejar con el documento oficial \"requisitos_RNPA.pdf\" de DIPA.",
+ pasos=[
+  "Entrá a la Plataforma DIPA con el usuario que ya usaste para el RNE.",
+  "Iniciá \"Agregar nuevo RNPA\". La carga tiene 5 etapas y se puede guardar como borrador. ✅",
+  "Subí los PDF y completá los datos del producto y del rótulo.",
+  "Pagá el arancel, si el trámite no está exento.",
+  "Seguí los estados del trámite: Borrador → Pendiente de pago → A caratular → A verificar. ✅",
+  "Respondé las observaciones y, una vez aprobado, descargá el certificado.",
+ ],
+ costos="Fijados anualmente en \"Aranceles_RNPA_2026.pdf\" de DIPA. ✅ ⚠️ Cargar el monto vigente.",
+ plazos="El Decreto 697/2026 fija un máximo de 30 días para resolver. Si vence sin respuesta, se puede usar el número de trámite y comercializar hasta la aprobación. ✅ ⚠️ Confirmar cómo lo aplica DIPA.",
+ errores=[
+  "Iniciar el RNPA sin RNE vigente o con un RNE que no cubre el producto.",
+  "Que el rótulo no coincida con lo declarado (ingredientes, denominación, contenido neto).",
+  "Olvidar el etiquetado frontal o calcular mal los sellos.",
+  "Usar una denominación de venta que no corresponde según el CAA.",
+  "Suponer que un sabor o variedad nueva entra en el mismo RNPA. ⚠️ Confirmar el criterio de DIPA.",
+ ],
+ normativa=[
+  "Ley 18.284 (CAA) y Decreto 2126/71. ✅",
+  "CAA, Capítulo V: rotulado. ✅",
+  "Res. Conjunta 26/2021: obligación de consignar el RNPA en el rótulo. ✅",
+  "Ley 27.642: etiquetado frontal. ✅",
+  "Decreto 697/2026. ✅",
+ ],
+ fuentes=[
+  ("RNE y RNPA, DIPA", "https://www.gba.gob.ar/desarrollo_agrario/direccion_de_industrias_y_productos_alimenticios/rne_rnpa"),
+  ("Manual de usuario de la plataforma (etapa UCAL)", "https://www.gba.gob.ar/sites/default/files/agroindustria/docs/Manual_de_usuario.pdf"),
+  ("Res. Conjunta 26/2021", "https://e-legis-ar.msal.gov.ar/legisalud/migration/pdf/scsresc26_2021.pdf"),
+  ("Decreto 697/2026, texto oficial", "https://www.argentina.gob.ar/normativa/nacional/norma-428482/texto"),
+ ],
+ relacionadas=["rne", "rotulado", "etiquetado-frontal"],
+),
+# ---------------------------------------------------------------- 6
+dict(
+ slug="cual-me-corresponde", bloque="registrar", icono="🧭",
+ titulo="¿PUPAA, RNE o RNPA? Cuál me corresponde",
+ resumen="Una comparación simple para saber por qué camino empezar según tu escala, tu producto y dónde querés vender.",
+ estado="rev",
+ palabras="cual me corresponde diferencia pupaa rne rnpa comparacion empezar que tramite necesito",
+ quien=[
+  "Cualquier persona que quiere vender un alimento y no sabe qué trámite hacer.",
+ ],
+ ante=[
+  ("PUPAA", "Producción artesanal de pequeña escala. Registro provincial gratuito ante DIPA. ✅"),
+  ("RNE", "Registro del establecimiento. Obligatorio para el camino \"industrial\" o PyME. ✅"),
+  ("RNPA", "Registro de cada producto. Va siempre después del RNE. ✅"),
+ ],
+ requisitos=[
+  "¿Producís en pequeña escala y de forma artesanal? → Evaluá PUPAA.",
+  "¿Querés vender en cadenas o distribuidores, o en otras provincias? → Probablemente necesites RNE + RNPA. ⚠️",
+  "¿Tercerizás la elaboración en otra planta? → El elaborador necesita RNE y vos tramitás el RNPA (con contrato). ⚠️",
+  "¿Tu producto es sin TACC, suplemento dietario o bebida hídrica? → Hay requisitos extra y puede hacer falta un director técnico. ⚠️",
+  "¿Vas a exportar? → Camino RNE + RNPA, más los requisitos del país de destino.",
+ ],
+ requisitos_nota="Estas preguntas orientan. La decisión final depende de tu producto y de lo que acepte la autoridad: ante la duda, consultá con DIPA o con un profesional.",
+ pasos=[
+  "Habilitá el local en tu municipio (ver ficha).",
+  "Sacá el carnet de manipulador para todos los que trabajen.",
+  "Elegí el camino: PUPAA, o RNE y después RNPA.",
+  "Diseñá el rótulo según el CAA (y el etiquetado frontal, si corresponde).",
+  "Revisá las novedades: el Decreto 697/2026 está cambiando el sistema.",
+ ],
+ costos="PUPAA: gratuito. RNE y RNPA: con aranceles anuales de DIPA. ✅",
+ plazos="Ver cada ficha.",
+ errores=[
+  "Empezar por el RNPA sin tener el RNE.",
+  "Hacer PUPAA cuando el plan de negocio requiere vender a cadenas o fuera de la provincia. ⚠️",
+  "Invertir en etiquetas impresas antes de tener el rótulo aprobado.",
+ ],
+ normativa=[
+  "Ver la normativa de cada ficha.",
+ ],
+ fuentes=[
+  ("DIPA, página principal", "https://www.gba.gob.ar/desarrollo_agrario/dipa"),
+  ("PUPAAs, DIPA", "https://www.gba.gob.ar/desarrollo_agrario/inicio_de_tramites/alimentos/pupaas"),
+  ("RNE y RNPA, DIPA", "https://www.gba.gob.ar/desarrollo_agrario/direccion_de_industrias_y_productos_alimenticios/rne_rnpa"),
+ ],
+ relacionadas=["pupaa", "rne", "rnpa"],
+),
+# ---------------------------------------------------------------- 7
+dict(
+ slug="rotulado", bloque="etiqueta", icono="🏷️",
+ titulo="Rotulado obligatorio según el CAA",
+ resumen="Qué información tiene que tener la etiqueta de un alimento envasado para cumplir con el Código Alimentario Argentino.",
+ estado="ok",
+ palabras="rotulo etiqueta rotulado ingredientes lote vencimiento alergenos informacion nutricional capitulo v",
+ quien=[
+  "Todo alimento envasado en ausencia del cliente y listo para ofrecer al consumidor. ✅",
+ ],
+ ante=[
+  ("Norma base", "CAA, Capítulo V, que incorpora las resoluciones Mercosur de rotulado. ✅"),
+  ("Quién lo revisa", "La autoridad sanitaria al registrar el producto (DIPA en PBA) y en los controles. ✅"),
+ ],
+ requisitos=[
+  "Denominación de venta del alimento.",
+  "Lista de ingredientes, en orden decreciente de proporción, incluidos los aditivos.",
+  "Contenido neto.",
+  "Identificación del origen: país y datos del elaborador o titular.",
+  "Nombre o razón social y domicilio del responsable.",
+  "Identificación del lote.",
+  "Fecha de duración mínima o de vencimiento.",
+  "Instrucciones de conservación y de uso, cuando corresponda.",
+  "Número de RNE y de RNPA (o del registro que corresponda).",
+  "Información nutricional, salvo excepciones.",
+  "Declaración de alérgenos (\"Contiene...\").",
+  "Leyendas especiales, si aplican (por ejemplo, \"Sin TACC\" con su logo oficial).",
+ ],
+ requisitos_nota="",
+ pasos=[
+  "Definí la denominación correcta según el CAA para tu producto.",
+  "Armá la lista de ingredientes con los porcentajes de tu formulación.",
+  "Calculá la información nutricional (por análisis o por tablas, con criterio profesional).",
+  "Revisá los alérgenos de cada ingrediente, incluidos los aditivos y los aromas.",
+  "Verificá si corresponden sellos de etiquetado frontal.",
+  "Diseñá el rótulo y hacelo revisar antes de imprimir en cantidad.",
+ ],
+ costos="Sin costo de trámite propio: se presenta dentro del RNPA o del PUPAA.",
+ plazos="—",
+ errores=[
+  "Que la denominación no coincida con la del CAA (por ejemplo, llamar \"dulce de leche\" a algo que no cumple la norma).",
+  "Olvidar alérgenos \"ocultos\" en aditivos o aromas.",
+  "Tamaño de letra o ubicación incorrecta de la información obligatoria.",
+  "Imprimir miles de etiquetas antes de que se apruebe el rótulo.",
+  "Usar frases como \"natural\" o \"casero\" sin respaldo normativo.",
+ ],
+ normativa=[
+  "CAA, Capítulo V: rotulación y publicidad de alimentos. ✅",
+  "Res. GMC 26/03 (rotulación general) y 46/03 (rotulado nutricional), incorporadas al CAA. ✅",
+  "Res. Conjunta 26/2021: RNPA en el rótulo. ✅",
+ ],
+ fuentes=[
+  ("Código Alimentario Argentino, ANMAT", "https://www.argentina.gob.ar/anmat/codigoalimentario"),
+  ("Res. Conjunta 26/2021", "https://e-legis-ar.msal.gov.ar/legisalud/migration/pdf/scsresc26_2021.pdf"),
+ ],
+ relacionadas=["etiquetado-frontal", "rnpa", "pupaa"],
+),
+# ---------------------------------------------------------------- 8
+dict(
+ slug="etiquetado-frontal", bloque="etiqueta", icono="⬛",
+ titulo="Etiquetado frontal (Ley 27.642)",
+ resumen="Los sellos octogonales negros que advierten excesos de azúcares, sodio, grasas o calorías. Está vigente, pero hay un proyecto para derogarlo.",
+ estado="rev",
+ palabras="etiquetado frontal octogonos sellos ley 27642 exceso azucares sodio grasas calorias edulcorantes cafeina",
+ quien=[
+  "Alimentos y bebidas analcohólicas envasados que superen los valores límite de nutrientes críticos. ✅",
+ ],
+ ante=[
+  ("Autoridad", "ANMAT, a través del Manual de Aplicación, que fue modificado en diciembre de 2024. ✅"),
+  ("Estado actual", "Vigente. En mayo de 2026 el Poder Ejecutivo envió al Congreso un proyecto para derogar la ley. ⚠️ Verificar su estado antes de diseñar."),
+ ],
+ requisitos=[
+  "Sellos \"EXCESO EN\": azúcares, sodio, grasas saturadas, grasas totales o calorías, según corresponda.",
+  "Leyendas precautorias cuando el producto contiene edulcorantes o cafeína.",
+  "Ubicación en la cara principal, con el tamaño que fija el Manual.",
+  "Restricciones en la publicidad y en el uso de personajes o promociones en productos con sellos.",
+ ],
+ requisitos_nota="",
+ pasos=[
+  "Calculá los nutrientes críticos de tu producto, tal como se vende.",
+  "Compará con los valores límite del Manual de Aplicación vigente.",
+  "Determiná qué sellos y leyendas corresponden.",
+  "Revisá si tu producto está exceptuado según el Manual (actualizado en 2024).",
+  "Ubicalos en el diseño según el tamaño de la cara principal.",
+ ],
+ costos="—",
+ plazos="—",
+ errores=[
+  "Calcular sobre la receta y no sobre el producto como se vende.",
+  "Usar un Manual de Aplicación viejo: fue modificado por las Disposiciones ANMAT 11362/2024 y 11378/2024.",
+  "Mantener personajes o regalos en un producto con sellos.",
+ ],
+ normativa=[
+  "Ley 27.642 de Promoción de la Alimentación Saludable. ✅",
+  "Decreto 151/22: reglamentación. ✅",
+  "Disposición ANMAT 11362/2024: nuevo Manual de Aplicación. ✅",
+  "Proyecto de derogación enviado al Senado (mayo de 2026). ⚠️",
+ ],
+ fuentes=[
+  ("Ley de etiquetado frontal, argentina.gob.ar", "https://www.argentina.gob.ar/node/287680"),
+  ("Disposición ANMAT 11362/2024", "https://www.argentina.gob.ar/normativa/nacional/norma-407673/texto"),
+  ("Proyecto de derogación en el Congreso (Elonce, 26/5/2026)", "https://www.elonce.com/uid-875313"),
+ ],
+ relacionadas=["rotulado", "rnpa", "decreto-697-2026"],
+),
+# ---------------------------------------------------------------- 9
+dict(
+ slug="matricula-direccion-tecnica", bloque="profesional", icono="🎓",
+ titulo="Matrícula y dirección técnica del ingeniero en alimentos",
+ resumen="Cómo se habilita un ingeniero en alimentos para ejercer en PBA y cuándo una empresa necesita un director técnico.",
+ estado="rev",
+ palabras="matricula ingeniero alimentos colegio ingenieros cipba direccion tecnica director tecnico profesional",
+ quien=[
+  "Ingenieros que quieren ejercer en la Provincia de Buenos Aires: el ejercicio de la ingeniería en todas sus ramas requiere matrícula. ✅",
+  "Empresas cuyo rubro exige director técnico. ⚠️ Ver el rubro en el CAA y en los requisitos de DIPA.",
+ ],
+ ante=[
+  ("Matrícula", "Colegio de Ingenieros de la Provincia de Buenos Aires (CIPBA), según la Ley 10.416. ✅"),
+  ("Dirección técnica", "Se declara en el RNE ante DIPA. ✅"),
+ ],
+ requisitos=[
+  "Matrícula: acreditar identidad. ✅",
+  "Matrícula: presentar el título habilitante. ✅",
+  "Matrícula: completar el resto de los requisitos del Colegio y pagar la cuota anual. ⚠️",
+  "Dirección técnica: título, matrícula al día y constancia del Colegio de que no tenés impedimentos para ejercer. ⚠️ (es lo habitual en otras jurisdicciones)",
+ ],
+ requisitos_nota="⚠️ Confirmar requisitos, costos y plazos actualizados directamente con el CIPBA.",
+ pasos=[
+  "Reuní el título y la documentación personal.",
+  "Iniciá la inscripción en el CIPBA (en el distrito que te corresponda).",
+  "Pagá la matrícula y mantené la cuota anual al día.",
+  "Para asumir una dirección técnica, pedí la constancia del Colegio y firmá la designación con la empresa.",
+  "La empresa la declara en su RNE en la Plataforma DIPA.",
+ ],
+ costos="Los fija el CIPBA. ⚠️",
+ plazos="Los fija el CIPBA. ⚠️",
+ errores=[
+  "Firmar documentación técnica sin la matrícula vigente.",
+  "Dejar vencer la cuota del Colegio: puede invalidar la dirección técnica.",
+  "No informar a DIPA el cambio de director técnico.",
+ ],
+ normativa=[
+  "Ley 10.416 (Colegio de Ingenieros de PBA) y sus modificatorias. ✅",
+  "CAA: rubros que exigen dirección técnica. ⚠️",
+ ],
+ fuentes=[
+  ("Ley 10.416, texto actualizado (normas.gba.gob.ar)", "https://normas.gba.gob.ar/documentos/xkdm6UAB.html"),
+ ],
+ relacionadas=["rne", "decreto-697-2026"],
+),
+# ---------------------------------------------------------------- 10
+dict(
+ slug="decreto-697-2026", bloque="profesional", icono="📰",
+ titulo="Decreto 697/2026: qué cambia para vos",
+ resumen="La reforma de agosto de 2026 al sistema de control de alimentos: el SENASA concentra registros y controles, hay un plazo de 30 días y se simplifica la importación.",
+ estado="ok",
+ palabras="decreto 697 2026 senasa reforma codigo alimentario importacion exportacion plazo 30 dias registro unico novedades",
+ quien=[
+  "Toda empresa que registre, importe o exporte alimentos, y los profesionales que la asesoran. ✅",
+ ],
+ ante=[
+  ("Publicación", "Boletín Oficial, 3 de agosto de 2026. ✅"),
+  ("Organismos", "El SENASA concentra el registro, la fiscalización, la habilitación y la inspección. El Ministerio de Salud conserva la parte normativa del CAA. ✅"),
+ ],
+ requisitos=[
+  "Plazo máximo de 30 días para resolver solicitudes de autorización de productos. Si vence, se puede comercializar con el número de trámite hasta la aprobación. ✅",
+  "Objetivo de un registro nacional único y una sola base de datos. ✅",
+  "Un registro aprobado en una provincia o en CABA podría valer para vender en todo el país. ✅",
+  "Importación: los productos con certificación de países reconocidos ingresan con una declaración jurada y un certificado de libre venta, sin RNE ni RNPA previos. ✅",
+  "La declaración jurada se extiende a ingredientes, aditivos, coadyuvantes y envases. ✅",
+  "El CAA y el rótulo obligatorio siguen vigentes. ✅",
+ ],
+ requisitos_nota="",
+ pasos=[
+  "Si ya tenés RNE y RNPA: seguí operando y estate atento a la migración de los sistemas.",
+  "Si estás por registrar: tené presente el plazo de 30 días y guardá el número de trámite.",
+  "Si importás: revisá si tu país de origen está en el Anexo III.",
+  "Seguí las novedades de DIPA y del SENASA: la implementación es gradual.",
+ ],
+ costos="—",
+ plazos="Vigente desde el 3/8/2026. La implementación operativa es gradual. ⚠️",
+ errores=[
+  "Creer que el decreto eliminó el CAA o los rótulos obligatorios: siguen vigentes.",
+  "Suponer que todo importado entra sin control: el SENASA puede inspeccionar después del ingreso.",
+ ],
+ normativa=[
+  "Decreto 697/2026. ✅",
+  "Ley 18.284 y Decreto 2126/71 (modificado). ✅",
+ ],
+ fuentes=[
+  ("Decreto 697/2026, texto oficial", "https://www.argentina.gob.ar/normativa/nacional/norma-428482/texto"),
+  ("Beccar Varela: principales modificaciones", "https://beccarvarela.com/novedades/principales-modificaciones-al-codigo-alimentario-argentino-y-al-sistema-nacional-de-control-de-alimentos-decreto-n-697-2026/"),
+  ("Los Andes: requisitos para importadores y exportadores", "https://www.losandes.com.ar/agroindustria/el-gobierno-cambio-el-codigo-alimentario-ahora-cuales-son-los-requisitos-importadores-y-exportadores-n6000902"),
+ ],
+ relacionadas=["rnpa", "rne", "etiquetado-frontal"],
+),
+]
+
+NOVEDADES = [
+ ("3/8/2026", "Decreto 697/2026: reforma del sistema de control de alimentos",
+  "El SENASA concentra el registro y los controles, se fija un plazo de 30 días para resolver autorizaciones y se simplifica la importación con declaración jurada.",
+  "decreto-697-2026"),
+ ("26/5/2026", "Proyecto para derogar la Ley de Etiquetado Frontal",
+  "El Poder Ejecutivo envió al Congreso un proyecto para derogar la Ley 27.642. Por ahora la ley sigue vigente: verificá su estado antes de rediseñar etiquetas.",
+  "etiquetado-frontal"),
+ ("2026", "Nueva resolución sobre PUPAAs (RESO-2026-63-GDEBA-MDAGP)",
+  "DIPA publicó una nueva norma sobre el régimen PUPAA. Estamos revisando qué cambió.",
+  "pupaa"),
+ ("2026", "DIPA publicó los aranceles 2026 de RNE y RNPA",
+  "Los valores de cada trámite están en los PDF oficiales de la página de DIPA.",
+  "rnpa"),
+]
